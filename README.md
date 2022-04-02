@@ -52,7 +52,7 @@ Content Table
 
 ## ⚙️ To-do
 
-- [ ] GraphQL API
+- [x] GraphQL API
   - [ ] Authentication with Guardian
   - [ ] Create front-end
   - [ ] LiveView integration
