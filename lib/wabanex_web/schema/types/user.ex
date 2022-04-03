@@ -6,6 +6,7 @@ defmodule WabanexWeb.Schema.Types.User do
     field :id, non_null(:uuid4), description: "User id"
     field :name, non_null(:string), description: "User name"
     field :email, non_null(:string), description: "User email"
+    field :trainings, list_of(:training), description: "User trainings"
   end
 
   @desc "Input user"
