@@ -4,7 +4,7 @@ defmodule Wabanex.User do
 
   alias Wabanex.Training
 
-  @fields [:email, :password, :name]
+  @fields [:email, :password, :name, :height, :weight, :fi, :mi]
 
   @primary_key {:id, :binary_id, autogenerate: true}
 
@@ -12,6 +12,10 @@ defmodule Wabanex.User do
     field :email, :string
     field :name, :string
     field :password, :string
+    field :height, :float
+    field :weight, :float
+    field :fi, :float
+    field :mi, :float
 
     has_many :trainings, Training
 
@@ -24,6 +28,10 @@ defmodule Wabanex.User do
     |> validate_required(@fields)
     |> validate_length(:password, min: 6)
     |> validate_length(:name, min: 2)
+    |> validate_number(:height, greater_than: 50.0, less_than: 350.0)
+    |> validate_number(:weight, greater_than: 10.0, less_than: 400.0)
+    |> validate_number(:fi, greater_than: 0.0, less_than: 101.0)
+    |> validate_number(:mi, greater_than: 0.0, less_than: 101.0)
     |> validate_format(:email, ~r/@/)
     |> unique_constraint(:email)
     |> put_password_hash()
