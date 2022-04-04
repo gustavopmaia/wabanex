@@ -53,6 +53,7 @@ Content Table
 ## ⚙️ To-do
 
 - [x] GraphQL API
+  - [x] Test all API (For the actual moment of the project) 
   - [ ] Authentication with Guardian
   - [ ] Create front-end
   - [ ] LiveView integration
