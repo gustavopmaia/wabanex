@@ -37,6 +37,19 @@ defmodule Wabanex.User do
     |> put_password_hash()
   end
 
+  def update_changeset(user, params) do
+    user
+    |> cast(params, @fields)
+    |> validate_length(:password, min: 6)
+    |> validate_length(:name, min: 2)
+    |> validate_number(:height, greater_than: 50.0, less_than: 350.0)
+    |> validate_number(:weight, greater_than: 10.0, less_than: 400.0)
+    |> validate_number(:fi, greater_than: 0.0, less_than: 101.0)
+    |> validate_number(:mi, greater_than: 0.0, less_than: 101.0)
+    |> validate_format(:email, ~r/@/)
+    |> unique_constraint(:email)
+  end
+
   defp put_password_hash(
          %Ecto.Changeset{valid?: true, changes: %{password: password}} = changeset
        ) do

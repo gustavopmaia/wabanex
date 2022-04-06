@@ -35,5 +35,12 @@ defmodule WabanexWeb.Schema.Types.Root do
       resolve &TrainingResolver.create/2
       middleware TranslateErrors
     end
+
+    field :update_user, type: :user do
+      arg :input, non_null(:update_user_object)
+
+      resolve &UserResolver.update/2
+      middleware TranslateErrors
+    end
   end
 end
