@@ -11,6 +11,7 @@ defmodule WabanexWeb.Schema.Types.User do
     field :fi, non_null(:float), description: "User fat index"
     field :mi, non_null(:float), description: "User muscle index"
     field :trainings, list_of(:training), description: "User trainings"
+    field :token, :string
   end
 
   @desc "Input user"

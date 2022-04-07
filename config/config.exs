@@ -10,6 +10,10 @@ import Config
 config :wabanex,
   ecto_repos: [Wabanex.Repo]
 
+config :wabanex, Wabanex.Guardian,
+  issuer: "wabanex",
+  secret_key: "Z+ax1+x0yzq7ZV25O5jGBPfvTpaVR/qPjHGCXattxkLKD4BqI5s/BOtWwarHoM1D"
+
 config :wabanex, Wabanex.Repo,
   migration_primary_key: [type: :binary_id],
   migration_foreign_key: [type: :binary_id]

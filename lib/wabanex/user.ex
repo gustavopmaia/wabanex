@@ -16,6 +16,7 @@ defmodule Wabanex.User do
     field :weight, :float
     field :fi, :float
     field :mi, :float
+    field :token, :string
 
     has_many :trainings, Training
 
@@ -48,6 +49,12 @@ defmodule Wabanex.User do
     |> validate_number(:mi, greater_than: 0.0, less_than: 101.0)
     |> validate_format(:email, ~r/@/)
     |> unique_constraint(:email)
+  end
+
+  def store_token_changeset(user, params) do
+    user
+    |> cast(params, [:token])
+    |> validate_required([:token])
   end
 
   defp put_password_hash(

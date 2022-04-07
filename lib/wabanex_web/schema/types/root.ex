@@ -49,5 +49,13 @@ defmodule WabanexWeb.Schema.Types.Root do
       resolve &UserResolver.delete/2
       middleware TranslateErrors
     end
+
+    field :login, type: :user do
+      arg :email, non_null(:string)
+      arg :password, non_null(:string)
+
+      resolve &UserResolver.login/2
+      middleware TranslateErrors
+    end
   end
 end

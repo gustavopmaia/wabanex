@@ -10,6 +10,13 @@ defmodule Wabanex.Users.Get do
     |> handle_response()
   end
 
+  def call_email(email) do
+    case Repo.get_by(User, email: email) do
+      nil -> {:error, "User not found"}
+      user -> {:ok, user}
+    end
+  end
+
   defp handle_response(:error) do
     {:error, "Invalid UUID"}
   end

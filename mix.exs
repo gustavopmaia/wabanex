@@ -55,7 +55,8 @@ defmodule Wabanex.MixProject do
       {:absinthe_plug, "~> 1.5"},
       {:argon2_elixir, "~> 3.0"},
       {:crudry, "~> 2.4.0"},
-      {:excoveralls, "~> 0.10", only: :test}
+      {:excoveralls, "~> 0.10", only: :test},
+      {:guardian, "~> 2.0"}
     ]
   end
 
