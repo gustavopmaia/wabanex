@@ -35,4 +35,9 @@ defmodule WabanexWeb.Schema.Types.User do
     field :fi, :float, description: "User fat index"
     field :mi, :float, description: "User muscle index"
   end
+
+  @desc "Delete user"
+  input_object :delete_user_object do
+    field :id, non_null(:uuid4), description: "User ID to delete"
+  end
 end
